@@ -73,7 +73,7 @@ VALIDATE $? "installing dependencies"
 }
 
 system_restart(){
-    systemctl restart $name
+    systemctl restart $name &>> $LOGS_FILE
     VALIDATE $? "$name is restarted"
 }
 
