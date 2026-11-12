@@ -4,8 +4,8 @@ Description=Shipping Service
 [Service]
 User=roboshop
 // highlight-start
-Environment=CART_ENDPOINT=cart.mohammed.world:8080
-Environment=DB_HOST=mysql.mohammed.world
+Environment=CART_ENDPOINT=cart.nazeer.shop:8080
+Environment=DB_HOST=mysql.nazeer.shop
 // highlight-end
 ExecStart=/bin/java -jar /app/shipping.jar
 SyslogIdentifier=shipping
