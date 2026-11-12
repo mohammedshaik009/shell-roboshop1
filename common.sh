@@ -37,7 +37,7 @@ app_setup(){
         useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
         echo "adding system user"
     else
-        echo -e "system user already created...$Y skipping $N"
+        echo -e "$TIMESTAMP [INFO] system user already created...$Y skipping $N"
     fi
 
 rm -rf /app &>> $LOGS_FILE
