@@ -12,8 +12,6 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-echo -e "$TIMESTAMP [INFO] script started"
-
 check_root(){
 USERID=$(id -u)
 #check root user or not
@@ -23,6 +21,7 @@ if [ $USERID -ne 0 ]; then
 fi
 }
 
+echo -e "$TIMESTAMP [INFO] script started"
 VALIDATE(){
     if [ $1 -ne 0 ]; then
         echo -e "$TIMESTAMP [ERROR] $2 is ....$R FAILED $N" | tee -a $LOGS_FILE
