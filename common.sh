@@ -72,6 +72,12 @@ npm install  &>> $LOGS_FILE
 VALIDATE $? "installing dependencies" 
 }
 
+system_restart(){
+    systemctl restart $name
+    VALIDATE $? "$name is restarted"
+}
+
+
 print_total_time(){
     echo -e "$TIMESTAMP [INFO] script executed in $SECONDS seconds"
 }

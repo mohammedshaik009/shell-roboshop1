@@ -13,3 +13,13 @@ VALIDATE $? "adding mongo.repo"
 dnf install mongodb-mongosh -y &>> $LOGS_FILE
 VALIDATE $? "installing MongoDB"
 
+    INDEX=$(mongosh --host mongodb.nazeer.shop --quiet --eval 'db.getMongo(). getDBNames().indexof("catalogue")')
+    if [ $INDEX -lt 0 ]; then
+        mongosh --host mongodb.nazeer.shop </app/db/master-data.js
+        echo -e "$TIMESTAMP [INFO] Load products"
+    else
+        echo -e "products already loaded ...$Y skipping $N"
+    fi
+
+system_restart
+print_total_time
