@@ -3,6 +3,9 @@
 name=catalogue
 source ./common.sh
 check_root
+app_setup
+nodejs_setup
+systemd_setup
 
 cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGS_FILE
 VALIDATE $? "adding mongo.repo"
