@@ -22,6 +22,7 @@ fi
 }
 
 echo -e "$TIMESTAMP [INFO] script started"
+
 VALIDATE(){
     if [ $1 -ne 0 ]; then
         echo -e "$TIMESTAMP [ERROR] $2 is ....$R FAILED $N" | tee -a $LOGS_FILE
