@@ -6,6 +6,7 @@ sudo chown -R ec2-user:ec2-user $LOGS_FOLDER
 sudo chmod -R 755 $LOGS_FOLDER
 LOGS_FILE="$LOGS_FOLDER/$0.log"
 SCRIPT_DIR=$PWD
+MYSQL_HOST=mysql.nazeer.shop
 TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
 R="\e[31m"
 G="\e[32m"
@@ -70,6 +71,13 @@ dnf install nodejs -y &>> $LOGS_FILE
 VALIDATE $? "installing nodejs"
 npm install  &>> $LOGS_FILE
 VALIDATE $? "installing dependencies" 
+}
+
+java_setup(){
+dnf install maven -y &>> $LOGS_FILE
+cd /app  &>> $LOGS_FILE
+mvn clean package  &>> $LOGS_FILE
+mv target/shipping-1.0.jar shipping.jar 
 }
 
 system_restart(){
