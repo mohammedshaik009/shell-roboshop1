@@ -4,8 +4,8 @@ source ./common.sh
 check_root
 
 cp rabbitmq.repo /etc/yum.repos.d/rabbitmq.repo &>> $LOGS_FILE
-VALIDATE $? "adding rabbitmq.repo
-"
+VALIDATE $? "adding rabbitmq.repo"
+
 dnf install erlang rabbitmq-server -y &>> $LOGS_FILE
 VALIDATE $? "installing rabbitmq-server"
 
